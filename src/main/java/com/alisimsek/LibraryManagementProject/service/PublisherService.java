@@ -47,7 +47,7 @@ public class PublisherService {
             throw new RuntimeException(id + "Güncellemeye çalıştığınız yayın evi sistemde bulunamadı. !!!.");
         }
 
-        if (isPublisherExist.isPresent()) {
+        if (isPublisherExist.isPresent() && !isPublisherExist.get().getId().equals(id)) {
             throw new RuntimeException("Bu yayın evi daha önce sisteme kayıt olmuştur !!!");
         }
 
