@@ -43,7 +43,7 @@ public class CategoryService {
             throw new RuntimeException(id + "Güncellemeye çalıştığınız kategori sistemde bulunamadı. !!!.");
         }
 
-        if (isCategoryExist.isPresent()) {
+        if (isCategoryExist.isPresent() && !isCategoryExist.get().getId().equals(id)) {
             throw new RuntimeException("Bu kategori daha önce sisteme kayıt olmuştur !!!");
         }
         request.setId(id);
